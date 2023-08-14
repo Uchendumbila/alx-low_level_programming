@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <time.h>
 /**
+ * main - Entry point
  * To assign random number n
  * To determine if n is positive, negative, or zero
  *
