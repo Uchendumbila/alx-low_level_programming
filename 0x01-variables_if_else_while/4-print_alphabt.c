@@ -12,11 +12,13 @@ int main(void)
 	int i;
 
 	for (i = 97; i <= 122; i++)
+	{
 		if (i == 113 || i == 101)
 			continue;
 		else
 			putchar(i);
 		if (i == 122)
 			putchar('\n');
+	}
 	return (0);
 }
