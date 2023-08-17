@@ -3,9 +3,9 @@
 /**
  * main - printing alphabet 10 times
  * in lowercase, followed by a new line
- *
- * Return: 0
+ * Return: void
  */
+
 void print_alphabet_x10(void)
 {
 	char c;
