@@ -2,7 +2,7 @@
 
 /**
  * jack_bauer - Printing every minute of the day of Jack Bauer
- * Return: ...
+ * Return: Always 0
  */
 
 void jack_bauer(void)
