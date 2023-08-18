@@ -3,7 +3,7 @@
 /**
  * print_times_table - Printing the times table of the input
  * startinf with 0
- * @n; The value of the times table to be printed
+ * @n: The value of the times table to be printed
  */
 
 void print_times_table(int n)
