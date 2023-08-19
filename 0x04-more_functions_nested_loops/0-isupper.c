@@ -2,11 +2,11 @@
 
 /**
  * _isupper - Checking for uppercase letter
- * @a: Letter to be checked
+ * @x: Letter to be checked
  * Return: 1 for uppercase letter or 0 for anything else
  */
 
-into _isupper(int x)
+int _isupper(int x)
 {
 
 	if (x >= 65 && x <= 90)
