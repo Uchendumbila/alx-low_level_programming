@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * print_array - Writing a function 
+ * print_array - Writing a function
  * that prints n elements of an array of integers
  * followed by a new line.
  * @m: array name
