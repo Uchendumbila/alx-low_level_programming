@@ -1,6 +1,10 @@
 #ifndef MAIN_H
 #define MAIN_H
 
+#include <stdio.h>
+#include <math.h>
+#include <stdlib.h>
+
 char *infinite_add(char *n1, char *n2, char *r, int size_r);
 char *string_toupper(char *a);
 char *cap_string(char *a);
