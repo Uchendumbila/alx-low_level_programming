@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 /**
- * print_diagsums - Writing a fxn that prints the sum of the two diagonals
+ * print_diagsums - Writing a fxn that prints the sum of the diagonals
  * of a square matrix of integers.
  * @a: Input
  * @size: Input
@@ -23,7 +23,7 @@ void print_diagsums(int *a, int size)
 	}
 	for (z = size - 1; z >= 0; z--)
 	{
-		sumy += a[y * size + (size - z - 1)];
+		sumy += a[z * size + (size - z - 1)];
 	}
 	printf("%d, %d\n", sumx, sumy);
 }
