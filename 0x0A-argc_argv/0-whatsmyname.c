@@ -3,14 +3,15 @@
 /**
  * main - Writing a program that prints its name
  * followed by a new line
- * @argsc: The arguments number
- * @argsv: The arguments array
+ * @argc: The arguments number
+ * @argv: The arguments array
  *
  * Return: Always 0.
  */
 
-int main(int argsc, char **argsv[])
+int main(int argc, char **argv)
 {
-	printf("%s\n", *argsv);
+	printf("%s\n", *argv);
+	(void)argc;
 	return (0);
 }
