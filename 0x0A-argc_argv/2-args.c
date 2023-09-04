@@ -16,7 +16,7 @@ int main(int argsc, char *argsv[])
 
 	for (i = 0; i < argsc; i++)
 	{
-		printf("%s\n", argsv[1]);
+		printf("%s\n", argsv[i]);
 	}
 	return (0);
 }
