@@ -30,3 +30,4 @@ char *_strdup(char *str)
 	for (x = 0; str[x]; x++)
 		swt[x] = str[x];
 	return (swt);
+}
