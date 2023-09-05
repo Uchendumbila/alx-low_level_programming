@@ -8,7 +8,7 @@
  * which contains a copy of the string given as a parameter.
  * @str: assigned char
  *
- * Return: Aalways 0.
+ * Return: pointer to string
  */
 
 char *_strdup(char *str)
