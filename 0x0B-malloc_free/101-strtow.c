@@ -6,7 +6,7 @@
  * count_word - Writing a fxn that counts the number of words in a string
  * @s: The evaluating str
  *
- * Return: The he number of words
+ * Return: The number of words
  */
 
 int count_word(char *s)
@@ -18,7 +18,7 @@ int count_word(char *s)
 
 	for (i = 0; s[i] != '\0'; i++)
 	{
-		if (s[i] == '')
+		if (s[i] == ' ')
 			cass = 0;
 		else if (cass == 0)
 		{
@@ -53,7 +53,7 @@ char **strtow(char *str)
 
 	for (z = 0; z <= x; z++)
 	{
-		if (str[z] == '' || str[z] == '\0')
+		if (str[z] == ' ' || str[z] == '\0')
 		{
 			if (y)
 			{
