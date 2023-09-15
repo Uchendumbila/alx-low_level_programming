@@ -12,7 +12,7 @@
  * Return: nothing
  */
 
-void array_iteration(int *array, size_t size, void (*action)(int))
+void array_iterator(int *array, size_t size, void (*action)(int))
 {
 	unsigned int w;
 
