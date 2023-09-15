@@ -30,11 +30,11 @@ int main(int argsc, char *argsv[])
 
 	siri = (char *)main;
 
-	for (w = 0; w < swt - 1)
+	for (w = 0; w < swt; w++)
 	{
 		if (w == swt - 1)
 		{
-			printf("%02hhx\n" siri[w]);
+			printf("%02hhx\n", siri[w]);
 			break;
 		}
 		printf("%02hhx ", siri[w]);
