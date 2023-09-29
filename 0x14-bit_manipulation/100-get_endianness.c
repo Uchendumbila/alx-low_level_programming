@@ -3,14 +3,13 @@
 #include <stdio.h>
 
 /**
- * get_endianness - Writing a fxn that checks the endianness.
- *
- * Return: 0 for big, 1 for small
+ * get_endianness - Writing a fxn that checks if a machine
+ * is little or big endian
+ * Return: 0 for big, 1 for little
  */
-
-int get_endinness(void)
+int get_endianness(void)
 {
-	unsigned int w = 1;
+	unsigned int i = 1;
 	char *c = (char *) &i;
 
 	return (*c);
