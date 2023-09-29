@@ -11,7 +11,7 @@
 int get_endinness(void)
 {
 	unsigned int w = 1;
-	char *c = (char *) &w;
+	char *c = (char *) &i;
 
 	return (*c);
 }
