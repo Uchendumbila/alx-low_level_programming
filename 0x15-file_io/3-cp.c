@@ -26,7 +26,7 @@ void error_file(int file_from, int file_to, char *argv[])
 }
 
 /**
- * main - Writing a fxn that
+ * main - Writing a fxn that check code for Holberton School students.
  * @argc: number of arguments
  * @argv: arguments vector
  *
@@ -44,6 +44,7 @@ int main(int argc, char *argv[])
 		dprintf(STDERR_FILENO, "%s\n", "Usage: cp from to");
 		exit(97);
 	}
+
 	from = open(argv[1], O_RDONLY);
 	to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC | O_APPEND, 0664);
 	error_file(from, to, argv);
