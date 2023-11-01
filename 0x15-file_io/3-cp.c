@@ -4,18 +4,18 @@
 
 /**
  * error_file - Writing a fxn that checks if files can be opened.
- * @file_from: file checking from
- * @file_to: file checking to
- * @argv: arguments vector
+ * @file_from: file_from.
+ * @file_to: file_to.
+ * @argv: arguments vector.
  *
- * Return: nothing
+ * Return: no return.
  */
 
 void error_file(int file_from, int file_to, char *argv[])
 {
 	if (file_from == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[2]);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
 		exit(98);
 	}
 	if (file_to == -1)
@@ -26,16 +26,16 @@ void error_file(int file_from, int file_to, char *argv[])
 }
 
 /**
- * main - Writing a fxn that check code for Holberton School students.
- * @argc: number of arguments
+ * main - Write a fxn that
+ * @argc: number of arguments.
  * @argv: arguments vector
- *
- * Return: Always 0
+ * .
+ * Return: Always 0.
  */
 
 int main(int argc, char *argv[])
 {
-	int from, to, oprr;
+	int from, to, swt;
 	ssize_t charr, ptr;
 	char buf[1024];
 
@@ -60,15 +60,15 @@ int main(int argc, char *argv[])
 			error_file(0, -1, argv);
 	}
 
-	oprr = close(from);
-	if (oprr == -1)
+	swt = close(from);
+	if (swt == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", from);
 		exit(100);
 	}
 
-	oprr = close(to);
-	if (oprr == -1)
+	swt = close(to);
+	if (swt == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", from);
 		exit(100);
