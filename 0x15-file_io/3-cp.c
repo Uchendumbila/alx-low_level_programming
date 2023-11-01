@@ -26,10 +26,10 @@ void error_file(int file_from, int file_to, char *argv[])
 }
 
 /**
- * main - Write a fxn that
+ * main - Write a fxn that check the code for The Holberton School students.
  * @argc: number of arguments.
- * @argv: arguments vector
- * .
+ * @argv: arguments vector.
+ *
  * Return: Always 0.
  */
 
