@@ -1,6 +1,4 @@
 #include "hash_tables.h"
-#include <stdio.h>
-#include <stdlib.h>
 
 /**
  * hash_table_create - Writing a fxn that creates a hash table
