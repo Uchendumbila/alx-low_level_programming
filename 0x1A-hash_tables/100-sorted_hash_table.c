@@ -2,24 +2,24 @@
 #include <stdio.h>
 
 /**
- * shash_table_create - Writing a fxn that creates a sorted hash table
+ * hash_table_create - Writing a fxn that creates a sorted hash table
  * @size: size of the hash table
  *
  * Return: pointer to the new table, or NULL on failure
  */
 
-shash_table_t *shash_table_create(unsigned long int size)
+hash_table_t *hash_table_create(unsigned long int size)
 {
-	shash_table_t *sht;
+	hash_table_t *sht;
 	unsigned long int i;
 
-	sht = malloc(sizeof(shash_table_t));
+	sht = malloc(sizeof(hash_table_t));
 	if (sht == NULL)
 		return (NULL);
 	sht->size = size;
 	sht->shead = NULL;
 	sht->stail = NULL;
-	sht->array = malloc(sizeof(shash_node_t) * size);
+	sht->array = malloc(sizeof(hash_node_t) * size);
 	if (sht->array == NULL)
 	{
 		free(sht);
@@ -41,11 +41,11 @@ shash_table_t *shash_table_create(unsigned long int size)
  * Return: pointer to the new node, or NULL on failure
  */
 
-shash_node_t *make_shash_node(const char *key, const char *value)
+hash_node_t *make_shash_node(const char *key, const char *value)
 {
-	shash_node_t *shn;
+	hash_node_t *shn;
 
-	shn = malloc(sizeof(shash_node_t));
+	shn = malloc(sizeof(hash_node_t));
 	if (shn == NULL)
 		return (NULL);
 	shn->key = strdup(key);
@@ -61,7 +61,7 @@ shash_node_t *make_shash_node(const char *key, const char *value)
 		free(shn);
 		return (NULL);
 	}
-	shn->next = shn->snext = shn->sprev = NULL;
+	shn->next = shn->next = shn->prev = NULL;
 	return (shn);
 }
 
@@ -73,34 +73,34 @@ shash_node_t *make_shash_node(const char *key, const char *value)
  * Return: void
  */
 
-void add_to_sorted_list(shash_table_t *table, shash_node_t *node)
+void add_to_sorted_list(hash_table_t *table, hash_node_t *)
 {
-	shash_node_t *tmp;
+	hash_node_t *tmp;
 
-	if (table->shead == NULL && table->stail == NULL)
+	if (table->head == NULL && table->tail == NULL)
 	{
-		table->shead = table->stail = node;
+		table->head = table->tail = node;
 		return;
 	}
-	tmp = table->shead;
+	tmp = table->head;
 	while (tmp != NULL)
 	{
 		if (strcmp(node->key, tmp->key) < 0)
 		{
-			node->snext = tmp;
-			node->sprev = tmp->sprev;
-			tmp->sprev = node;
-			if (node->sprev != NULL)
-				node->sprev->snext = node;
+			node->next = tmp;
+			node->prev = tmp->prev;
+			tmp->prev = node;
+			if (node->prev != NULL)
+				node->prev->next = node;
 			else
-				table->shead = node;
+				table->head = node;
 			return;
 		}
-		tmp = tmp->snext;
+		tmp = tmp->next;
 	}
-	node->sprev = table->stail;
-	table->stail->snext = node;
-	table->stail = node;
+	node->prev = table->tail;
+	table->tail->next = node;
+	table->tail = node;
 }
 
 /**
@@ -113,7 +113,7 @@ void add_to_sorted_list(shash_table_t *table, shash_node_t *node)
  * Return: 1 on success, 0 otherwise
  */
 
-int shash_table_set(shash_table_t *ht, const char *key, const char *value)
+int shash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long int index;
 	char *new_value;
@@ -154,10 +154,10 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
  * Return: the value associated with key, or NULL on failure
  */
 
-char *shash_table_get(const shash_table_t *ht, const char *key)
+char *shash_table_get(const hash_table_t *ht, const char *key)
 {
 	unsigned long int index;
-	shash_node_t *tmp;
+	hash_node_t *tmp;
 
 	if (ht == NULL || ht->array == NULL || ht->size == 0 ||
 	    key == NULL || strlen(key) == 0)
@@ -182,7 +182,7 @@ char *shash_table_get(const shash_table_t *ht, const char *key)
 
 void shash_table_print(const shash_table_t *ht)
 {
-	shash_node_t *tmp;
+	hash_node_t *tmp;
 	char flag = 0; /* 0 before printing any data, 1 after*/
 
 	if (ht == NULL || ht->array == NULL)
@@ -195,7 +195,7 @@ void shash_table_print(const shash_table_t *ht)
 			printf(", ");
 		printf("'%s': '%s'", tmp->key, tmp->value);
 		flag = 1;
-		tmp = tmp->snext;
+		tmp = tmp->next;
 	}
 	printf("}\n");
 }
@@ -209,7 +209,7 @@ void shash_table_print(const shash_table_t *ht)
 
 void shash_table_print_rev(const shash_table_t *ht)
 {
-	shash_node_t *tmp;
+	hash_node_t *tmp;
 	char flag = 0; /* 0 before printing any data, 1 after*/
 
 	if (ht == NULL || ht->array == NULL)
@@ -234,10 +234,10 @@ void shash_table_print_rev(const shash_table_t *ht)
  * Return: void
  */
 
-void shash_table_delete(shash_table_t *ht)
+void shash_table_delete(hash_table_t *ht)
 {
 	unsigned long int p;
-	shash_node_t *next;
+	hash_node_t *next;
 
 	if (ht == NULL || ht->array == NULL || ht->size == 0)
 		return;
