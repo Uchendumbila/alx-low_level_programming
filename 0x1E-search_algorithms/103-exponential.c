@@ -6,6 +6,7 @@
  * recursive_search - Writing a fxn that searches for a value in an array of
  * integers using the Binary search algorithm
  *
+ *
  * @array: input array
  * @size: size of the array
  * @value: value to search in
@@ -15,15 +16,15 @@
 int recursive_search(int *array, size_t size, int value)
 {
 	size_t half = size / 2;
-	size_t w;
+	size_t i;
 
 	if (array == NULL || size == 0)
 		return (-1);
 
 	printf("Searching in array");
 
-	for (w = 0; w < size; w++)
-		printf("%s %d", (w == 0) ? ":" : ",", array[w]);
+	for (i = 0; i < size; i++)
+		printf("%s %d", (i == 0) ? ":" : ",", array[i]);
 
 	printf("\n");
 
@@ -64,8 +65,8 @@ int binary_search(int *array, size_t size, int value)
 }
 
 /**
- * exponential_search - Writing a fxn that searches for a value in an array of
- * integers using the Exponential search algorithm
+ * exponential_search - Writing a fxn that searches for a value in an array
+ * of integers using the Exponential search algorithm
  *
  * @array: input array
  * @size: size of the array
